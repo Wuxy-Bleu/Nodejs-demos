@@ -1,0 +1,49 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Loading加载</title>
+
+
+<link type="text/css" href="css/style.css" rel="stylesheet" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+</head>
+<body>
+
+<div class="loading-page">
+	<div class="counter">
+		<p>loading</p>
+		<h1>0%</h1>
+		<hr/>
+	</div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  
+  var counter = 0;
+  var c = 0;
+  var i = setInterval(function(){
+      $(".loading-page .counter h1").html(c + "%");
+      $(".loading-page .counter hr").css("width", c + "%");
+      //$(".loading-page .counter").css("background", "linear-gradient(to right, #f60d54 "+ c + "%,#0d0d0d "+ c + "%)");
+
+    /*
+    $(".loading-page .counter h1.color").css("width", c + "%");
+    */
+    counter++;
+    c++;
+      
+    if(counter == 101) {
+        clearInterval(i);
+        console.log("end");
+        window.location.href="./demo.html";
+    }
+  }, 50);
+});</script>
+
+</body>
+</html>
